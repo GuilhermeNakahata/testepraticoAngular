@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <h2>Listagem de Pessoas</h2>
+    </div>
+    <div class="d-flex justify-content-center">
+        <ul>
+            <li *ngFor="let c of pessoas">
+                <label for="lname">Código: </label> {{c.codigo}} 
+                <label for="lname">Nome: </label> {{c.nome}}
+                <label for="lname">CPF: </label> {{c.cpf}}
+            </li>
+        </ul>
+    </div>
+    <div class="d-flex justify-content-center">
+        <h2>Busca e Exclusão</h2>
+    </div>
+    <div class="form-group">
+        <div class="d-flex justify-content-center">
+            <label for="valor">Código: </label>&nbsp;
+            <input type="text" name="Código" [(ngModel)]="id" required>  
+        </div> 
+        <br>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-info btn-sm" (click) = listarUnico()>
+            <span class="glyphicon glyphicon-eye-open"></span>
+            <span class="hidden-xs hidden-sm">Buscar</span>
+            </button>&nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-danger btn-sm" (click) = deletar()>
+            <span class="glyphicon glyphicon-remove-circle"></span>
+            <span class="hidden-xs hidden-sm">Deletar</span>
+            </button>
+        </div>   
+        <br>
+        <div class="d-flex justify-content-center">
+            <label for="Nome">Nome: </label>&nbsp;
+            <input type="text" name="nomeedicao" [(ngModel)]="pessoa.nome" required>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <label for="Cpf">CPF: </label>&nbsp;
+            <input type="text" name="cpfedicao" [(ngModel)]="pessoa.cpf" required>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-warning" [disabled]="btneditar" (click) = alterar()>
+                <span class="glyphicon glyphicon-remove-circle"></span>
+                <span class="hidden-xs hidden-sm">Editar</span>
+            </button>
+        </div>
+        <br>
+    </div> 
+    <h2 class="d-flex justify-content-center">Inclusão</h2>
+    <div class="d-flex justify-content-center">
+        <label for="Nome">Nome: </label>&nbsp;
+        <input type="text" name="nome" [(ngModel)]="pessoacriacao.nome" required>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+        <label for="Cpf">CPF: </label>&nbsp;
+        <input type="text" name="cpf" [(ngModel)]="pessoacriacao.cpf" required>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-success" (click) = criar()>
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        <span class="hidden-xs hidden-sm">Adicionar</span>
+        </button>
+    </div>
+</div>
